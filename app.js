@@ -30,6 +30,8 @@ app.use((req, res, next) => {
   next();
 });
 
+// prout prout
+
 app.use(function (req, res, next) {
   // Strict-Transport-Security
   res.setHeader(
