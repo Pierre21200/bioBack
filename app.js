@@ -7,8 +7,7 @@ const infosRoutes = require("./routes/index.js");
 
 mongoose
   .connect(
-    "mongodb+srv://hugovuillet:Cecew324@cluster0.0uufnwg.mongodb.net/",
-    // "mongodb+srv://pierrepotin21:Titicaca21200@cluster0.7loclwk.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://pierrepotin21:Titicaca21200@cluster0.7loclwk.mongodb.net/?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => console.log("Connexion à MongoDB réussie !"))
