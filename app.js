@@ -13,7 +13,9 @@ mongoose
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
+// Middleware CORS en premier
 app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,30 +33,7 @@ app.use((req, res, next) => {
 });
 
 app.use(function (req, res, next) {
-  // Strict-Transport-Security
-  res.setHeader(
-    "Strict-Transport-Security",
-    "max-age=31536000; includeSubDomains"
-  );
-
-  // Content-Security-Policy
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
-  );
-
-  // X-Frame-Options
-  res.setHeader("X-Frame-Options", "SAMEORIGIN");
-
-  // X-Content-Type-Options
-  res.setHeader("X-Content-Type-Options", "nosniff");
-
-  // Referrer-Policy
-  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-
-  // Permissions-Policy
-  res.setHeader("Permissions-Policy", "self");
-
+  // ... Vos autres middlewares de sécurité
   next();
 });
 
@@ -74,6 +53,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log("Réponse envoyée avec succès !");
+  next();
 });
 
 module.exports = app;
