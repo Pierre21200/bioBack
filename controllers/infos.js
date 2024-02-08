@@ -130,7 +130,7 @@ exports.createComInfos = (req, res, next) => {
 
   infos
     .save()
-    .then(() => res.status(201).json({ message: "Infos saved oui!" }))
+    .then(() => res.status(201).json({ message: "Infos saved successfully!" }))
     .catch((error) => res.status(400).json({ error }));
 };
 
