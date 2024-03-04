@@ -46,7 +46,7 @@ function convertDate(dateString) {
 
 // POST CONTROLLER
 exports.createDate = (req, res, next) => {
-  console.log(req.body);
+  console.log("création date");
   var dateObject;
   var free = null;
 
